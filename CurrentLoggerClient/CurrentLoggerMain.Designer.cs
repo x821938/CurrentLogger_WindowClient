@@ -60,6 +60,8 @@
             this.LB_LB_Count = new System.Windows.Forms.Label();
             this.GB_Manual = new System.Windows.Forms.GroupBox();
             this.GB_Measurements = new System.Windows.Forms.GroupBox();
+            this.LB_Read = new System.Windows.Forms.Label();
+            this.LB_LB_Reads = new System.Windows.Forms.Label();
             this.GB_Configuration.SuspendLayout();
             this.GB_Trigger.SuspendLayout();
             this.GB_Manual.SuspendLayout();
@@ -217,7 +219,7 @@
             // LB_Voltage
             // 
             this.LB_Voltage.AutoSize = true;
-            this.LB_Voltage.Location = new System.Drawing.Point(100, 59);
+            this.LB_Voltage.Location = new System.Drawing.Point(100, 79);
             this.LB_Voltage.Name = "LB_Voltage";
             this.LB_Voltage.Size = new System.Drawing.Size(56, 17);
             this.LB_Voltage.TabIndex = 22;
@@ -226,7 +228,7 @@
             // LB_Current
             // 
             this.LB_Current.AutoSize = true;
-            this.LB_Current.Location = new System.Drawing.Point(100, 81);
+            this.LB_Current.Location = new System.Drawing.Point(100, 100);
             this.LB_Current.Name = "LB_Current";
             this.LB_Current.Size = new System.Drawing.Size(55, 17);
             this.LB_Current.TabIndex = 23;
@@ -235,7 +237,7 @@
             // LB_Power
             // 
             this.LB_Power.AutoSize = true;
-            this.LB_Power.Location = new System.Drawing.Point(100, 103);
+            this.LB_Power.Location = new System.Drawing.Point(100, 121);
             this.LB_Power.Name = "LB_Power";
             this.LB_Power.Size = new System.Drawing.Size(47, 17);
             this.LB_Power.TabIndex = 24;
@@ -244,7 +246,7 @@
             // LB_mAh
             // 
             this.LB_mAh.AutoSize = true;
-            this.LB_mAh.Location = new System.Drawing.Point(100, 125);
+            this.LB_mAh.Location = new System.Drawing.Point(100, 142);
             this.LB_mAh.Name = "LB_mAh";
             this.LB_mAh.Size = new System.Drawing.Size(36, 17);
             this.LB_mAh.TabIndex = 25;
@@ -253,7 +255,7 @@
             // LB_mWh
             // 
             this.LB_mWh.AutoSize = true;
-            this.LB_mWh.Location = new System.Drawing.Point(100, 147);
+            this.LB_mWh.Location = new System.Drawing.Point(100, 163);
             this.LB_mWh.Name = "LB_mWh";
             this.LB_mWh.Size = new System.Drawing.Size(40, 17);
             this.LB_mWh.TabIndex = 26;
@@ -294,7 +296,7 @@
             // LB_LB_mWh
             // 
             this.LB_LB_mWh.AutoSize = true;
-            this.LB_LB_mWh.Location = new System.Drawing.Point(33, 147);
+            this.LB_LB_mWh.Location = new System.Drawing.Point(33, 163);
             this.LB_LB_mWh.Name = "LB_LB_mWh";
             this.LB_LB_mWh.Size = new System.Drawing.Size(44, 17);
             this.LB_LB_mWh.TabIndex = 34;
@@ -303,7 +305,7 @@
             // LB_LB_mAh
             // 
             this.LB_LB_mAh.AutoSize = true;
-            this.LB_LB_mAh.Location = new System.Drawing.Point(33, 125);
+            this.LB_LB_mAh.Location = new System.Drawing.Point(33, 142);
             this.LB_LB_mAh.Name = "LB_LB_mAh";
             this.LB_LB_mAh.Size = new System.Drawing.Size(40, 17);
             this.LB_LB_mAh.TabIndex = 33;
@@ -312,7 +314,7 @@
             // LB_LB_Power
             // 
             this.LB_LB_Power.AutoSize = true;
-            this.LB_LB_Power.Location = new System.Drawing.Point(33, 103);
+            this.LB_LB_Power.Location = new System.Drawing.Point(33, 121);
             this.LB_LB_Power.Name = "LB_LB_Power";
             this.LB_LB_Power.Size = new System.Drawing.Size(51, 17);
             this.LB_LB_Power.TabIndex = 32;
@@ -321,7 +323,7 @@
             // LB_LB_Current
             // 
             this.LB_LB_Current.AutoSize = true;
-            this.LB_LB_Current.Location = new System.Drawing.Point(33, 81);
+            this.LB_LB_Current.Location = new System.Drawing.Point(33, 100);
             this.LB_LB_Current.Name = "LB_LB_Current";
             this.LB_LB_Current.Size = new System.Drawing.Size(59, 17);
             this.LB_LB_Current.TabIndex = 31;
@@ -330,7 +332,7 @@
             // LB_LB_Voltage
             // 
             this.LB_LB_Voltage.AutoSize = true;
-            this.LB_LB_Voltage.Location = new System.Drawing.Point(33, 59);
+            this.LB_LB_Voltage.Location = new System.Drawing.Point(33, 79);
             this.LB_LB_Voltage.Name = "LB_LB_Voltage";
             this.LB_LB_Voltage.Size = new System.Drawing.Size(60, 17);
             this.LB_LB_Voltage.TabIndex = 30;
@@ -358,6 +360,8 @@
             // 
             // GB_Measurements
             // 
+            this.GB_Measurements.Controls.Add(this.LB_Read);
+            this.GB_Measurements.Controls.Add(this.LB_LB_Reads);
             this.GB_Measurements.Controls.Add(this.LB_LB_Voltage);
             this.GB_Measurements.Controls.Add(this.LB_DataCount);
             this.GB_Measurements.Controls.Add(this.LB_LB_mWh);
@@ -372,10 +376,28 @@
             this.GB_Measurements.Controls.Add(this.LB_LB_Count);
             this.GB_Measurements.Location = new System.Drawing.Point(716, 29);
             this.GB_Measurements.Name = "GB_Measurements";
-            this.GB_Measurements.Size = new System.Drawing.Size(190, 191);
+            this.GB_Measurements.Size = new System.Drawing.Size(190, 207);
             this.GB_Measurements.TabIndex = 36;
             this.GB_Measurements.TabStop = false;
             this.GB_Measurements.Text = "Measurements";
+            // 
+            // LB_Read
+            // 
+            this.LB_Read.AutoSize = true;
+            this.LB_Read.Location = new System.Drawing.Point(100, 58);
+            this.LB_Read.Name = "LB_Read";
+            this.LB_Read.Size = new System.Drawing.Size(49, 17);
+            this.LB_Read.TabIndex = 35;
+            this.LB_Read.Text = "Reads";
+            // 
+            // LB_LB_Reads
+            // 
+            this.LB_LB_Reads.AutoSize = true;
+            this.LB_LB_Reads.Location = new System.Drawing.Point(33, 58);
+            this.LB_LB_Reads.Name = "LB_LB_Reads";
+            this.LB_LB_Reads.Size = new System.Drawing.Size(53, 17);
+            this.LB_LB_Reads.TabIndex = 36;
+            this.LB_LB_Reads.Text = "Reads:";
             // 
             // CurrentLogger
             // 
@@ -434,6 +456,8 @@
         private System.Windows.Forms.Label LB_LB_Count;
         private System.Windows.Forms.GroupBox GB_Manual;
         private System.Windows.Forms.GroupBox GB_Measurements;
+        private System.Windows.Forms.Label LB_Read;
+        private System.Windows.Forms.Label LB_LB_Reads;
     }
 }
 

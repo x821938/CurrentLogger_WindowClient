@@ -16,6 +16,7 @@ namespace CurrentLoggerClient
     public struct InaData 
     {
         public double time;
+        public int i2cReadings;
         public float voltage;
         public float current;
         public float power;
@@ -84,6 +85,7 @@ namespace CurrentLoggerClient
                 string[] parameters = returnData.Split( ':' );
                 InaData dataEntry = new InaData();
                 dataEntry.time = float.Parse(parameters[0]);
+                dataEntry.i2cReadings = int.Parse(parameters[1], fmt);
                 dataEntry.voltage = float.Parse(parameters[2], fmt);
                 dataEntry.current = float.Parse(parameters[3], fmt);
                 dataEntry.power = float.Parse(parameters[4], fmt);
@@ -98,6 +100,7 @@ namespace CurrentLoggerClient
                     InvokeUI(() => // Update the UI elements
                     {
                         LB_DataCount.Text = logDataCount.ToString();
+                        LB_Read.Text = dataEntry.i2cReadings.ToString();
                         LB_Voltage.Text = dataEntry.voltage.ToString();
                         LB_Current.Text = dataEntry.current.ToString();
                         LB_Power.Text = dataEntry.power.ToString();
@@ -146,7 +149,7 @@ namespace CurrentLoggerClient
             {
                 foreach (var e in logData) // All collected data are traversed
                 {
-                    string csvRow = string.Format("{0};{1};{2};{3};{4};{5}", e.time, e.voltage, e.current, e.power, e.mAh, e.mWh);
+                    string csvRow = string.Format("{0};{1};{2};{3};{4};{5};{6}", e.time, e.i2cReadings, e.voltage, e.current, e.power, e.mAh, e.mWh);
                     stream.WriteLine(csvRow);
                 }
             }
@@ -160,6 +163,7 @@ namespace CurrentLoggerClient
         void ClearMeasurementStats()
         {
             LB_DataCount.Text = "";
+            LB_Read.Text = "";
             LB_Current.Text = "";
             LB_Voltage.Text = "";
             LB_Power.Text = "";
@@ -183,6 +187,7 @@ namespace CurrentLoggerClient
             TB_TriggerValue.Enabled = !isSampling;
             BT_Stop.Enabled = isSampling;
             LB_DataCount.Visible = isSampling;
+            LB_Read.Visible = isSampling;
             LB_Voltage.Visible = isSampling;
             LB_Current.Visible = isSampling;
             LB_Power.Visible = isSampling;
