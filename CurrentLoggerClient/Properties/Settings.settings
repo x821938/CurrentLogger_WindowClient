@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CurrentLoggerClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ListenPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6000</Value>
+    </Setting>
+    <Setting Name="RemotePort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6000</Value>
+    </Setting>
+    <Setting Name="RemoteIp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.99.99</Value>
+    </Setting>
+    <Setting Name="StorageFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\temp\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
