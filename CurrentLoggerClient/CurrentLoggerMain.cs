@@ -159,6 +159,18 @@ namespace CurrentLoggerClient
         #region User interface
 
 
+        /* Calculate and show the current range based on gain set and the shunt resistor */
+        private void ShowCurrentRange()
+        {
+            int[] gains = { 40, 80, 160, 320 };
+            int shuntVoltageRange = gains[int.Parse(CB_Gain.SelectedValue.ToString())];
+            float shuntResistor = 1;
+            float.TryParse(TB_ShuntResistor.Text.Replace(".", ","), out shuntResistor);
+            float shuntCurrentRange = shuntVoltageRange / shuntResistor;
+            LB_CurrentRange.Text = "0-" + shuntCurrentRange.ToString() + "mA";
+        }
+
+
         /* When triggering is started we want the UI stats to be removed */
         void ClearMeasurementStats()
         {
@@ -229,8 +241,8 @@ namespace CurrentLoggerClient
                 new { Text = "276us 11bit", Value = "2" },
                 new { Text = "532us 12bit", Value = "3" },
                 new { Text = "1.06ms 2samples", Value = "9" },
-                new { Text = "2.13ms 4samples", Value = "10" },
-                new { Text = "4.26ms 8samples", Value = "11" },
+                new { Text = "2.13ms 4samples *", Value = "10" },
+                new { Text = "4.26ms 8samples *", Value = "11" },
                 new { Text = "8.51ms 16samples *", Value = "12" },
                 new { Text = "17.02ms 32samples *", Value = "13" },
                 new { Text = "34.05ms 64samples *", Value = "14" },
@@ -248,8 +260,8 @@ namespace CurrentLoggerClient
                 new { Text = "276us 11bit", Value = "2" },
                 new { Text = "532us 12bit", Value = "3" },
                 new { Text = "1.06ms 2samples", Value = "9" },
-                new { Text = "2.13ms 4samples", Value = "10" },
-                new { Text = "4.26ms 8samples", Value = "11" },
+                new { Text = "2.13ms 4samples *", Value = "10" },
+                new { Text = "4.26ms 8samples *", Value = "11" },
                 new { Text = "8.51ms 16samples *", Value = "12" },
                 new { Text = "17.02ms 32samples *", Value = "13" },
                 new { Text = "34.05ms 64samples *", Value = "14" },
@@ -312,6 +324,20 @@ namespace CurrentLoggerClient
             ClearMeasurementStats();
             isSampling = true;
             UpdateVisibility();
+        }
+
+
+        /* When gain changes update the current range */
+        private void CB_Gain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowCurrentRange();
+        }
+
+
+        /* When Shunt resistor changes update the current range */
+        private void TB_ShuntResistor_TextChanged(object sender, EventArgs e)
+        {
+            ShowCurrentRange();
         }
 
 

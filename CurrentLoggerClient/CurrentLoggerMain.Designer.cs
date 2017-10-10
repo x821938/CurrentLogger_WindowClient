@@ -62,6 +62,8 @@
             this.GB_Measurements = new System.Windows.Forms.GroupBox();
             this.LB_Read = new System.Windows.Forms.Label();
             this.LB_LB_Reads = new System.Windows.Forms.Label();
+            this.LB_LB_CurrentRange = new System.Windows.Forms.Label();
+            this.LB_CurrentRange = new System.Windows.Forms.Label();
             this.GB_Configuration.SuspendLayout();
             this.GB_Trigger.SuspendLayout();
             this.GB_Manual.SuspendLayout();
@@ -75,6 +77,7 @@
             this.CB_Gain.Name = "CB_Gain";
             this.CB_Gain.Size = new System.Drawing.Size(121, 24);
             this.CB_Gain.TabIndex = 0;
+            this.CB_Gain.SelectedIndexChanged += new System.EventHandler(this.CB_Gain_SelectedIndexChanged);
             // 
             // LB_Gain
             // 
@@ -143,6 +146,7 @@
             this.TB_ShuntResistor.Size = new System.Drawing.Size(100, 22);
             this.TB_ShuntResistor.TabIndex = 8;
             this.TB_ShuntResistor.Text = "0.1";
+            this.TB_ShuntResistor.TextChanged += new System.EventHandler(this.TB_ShuntResistor_TextChanged);
             // 
             // LB_ShuntResistor
             // 
@@ -263,6 +267,8 @@
             // 
             // GB_Configuration
             // 
+            this.GB_Configuration.Controls.Add(this.LB_CurrentRange);
+            this.GB_Configuration.Controls.Add(this.LB_LB_CurrentRange);
             this.GB_Configuration.Controls.Add(this.LB_Range);
             this.GB_Configuration.Controls.Add(this.CB_Gain);
             this.GB_Configuration.Controls.Add(this.LB_Gain);
@@ -275,7 +281,7 @@
             this.GB_Configuration.Controls.Add(this.LB_ShuntResistor);
             this.GB_Configuration.Location = new System.Drawing.Point(34, 29);
             this.GB_Configuration.Name = "GB_Configuration";
-            this.GB_Configuration.Size = new System.Drawing.Size(361, 241);
+            this.GB_Configuration.Size = new System.Drawing.Size(361, 273);
             this.GB_Configuration.TabIndex = 27;
             this.GB_Configuration.TabStop = false;
             this.GB_Configuration.Text = "Configuration";
@@ -399,6 +405,23 @@
             this.LB_LB_Reads.TabIndex = 36;
             this.LB_LB_Reads.Text = "Reads:";
             // 
+            // LB_LB_CurrentRange
+            // 
+            this.LB_LB_CurrentRange.AutoSize = true;
+            this.LB_LB_CurrentRange.Location = new System.Drawing.Point(21, 221);
+            this.LB_LB_CurrentRange.Name = "LB_LB_CurrentRange";
+            this.LB_LB_CurrentRange.Size = new System.Drawing.Size(105, 17);
+            this.LB_LB_CurrentRange.TabIndex = 10;
+            this.LB_LB_CurrentRange.Text = "Current Range:";
+            // 
+            // LB_CurrentRange
+            // 
+            this.LB_CurrentRange.AutoSize = true;
+            this.LB_CurrentRange.Location = new System.Drawing.Point(125, 221);
+            this.LB_CurrentRange.Name = "LB_CurrentRange";
+            this.LB_CurrentRange.Size = new System.Drawing.Size(0, 17);
+            this.LB_CurrentRange.TabIndex = 11;
+            // 
             // CurrentLogger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -458,6 +481,8 @@
         private System.Windows.Forms.GroupBox GB_Measurements;
         private System.Windows.Forms.Label LB_Read;
         private System.Windows.Forms.Label LB_LB_Reads;
+        private System.Windows.Forms.Label LB_CurrentRange;
+        private System.Windows.Forms.Label LB_LB_CurrentRange;
     }
 }
 
